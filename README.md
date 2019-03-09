@@ -1,1 +1,1 @@
-"Thief's Knapsack algorithm visualized with python-curses."
+"Thief's Knapsack algorithm visualized with curses in python."
