@@ -1,0 +1,1 @@
+"Thief's Knapsack algorithm visualized with python-curses."

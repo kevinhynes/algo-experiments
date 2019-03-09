@@ -3,17 +3,19 @@ For each item being considered, find the maximum value for whole knapsack.
 To do this, consider value of the whole knapsack with and without the current
 item.
 
+WITH current item -> max value @ capacity == (current capacity - item weight)
+WITHOUT current item -> max value @ capacity == current capacity.
+
 Let the knapsack value be denoted by V[i][c] where i is the item number, and
 c is the available capacity in the knapsack.
 
-Then for any V[i][c] in the matrix, V[i][c] should be the maximum value of
-the knapsack WITH the current item:
+Then for any value V[i][c] in the matrix V, V[i][c] should be the maximum
+value of the knapsack WITH the current item:
     V[i-1][c - items[i].weight] + items[i].value
 
 and of the knapsack WITHOUT the current item:
     V[i-1][c]
 '''
-import sys
 import time
 import random
 from collections import namedtuple
@@ -23,7 +25,7 @@ loot_adjectives = ['red', 'green', 'blue', 'crystal', 'explosive', 'death',
 items_to_loot = ['clock', 'map', 'ammo', 'bomb', 'cash', 'sword', 'portal']
 
 class ThiefsKnapsack:
-    def __init__(self, num_items=5, capacity=10):
+    def __init__(self, num_items=3, capacity=5):
         items = []
         item = namedtuple('item', ('name', 'value', 'weight'))
         for _ in range(num_items):
